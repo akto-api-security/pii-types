@@ -8,6 +8,14 @@
         {"name":"secret","regexPattern":".*secret.*", "sensitive":true, "onKey": true},
         {"name":"auth","regexPattern":".*auth.*", "sensitive":true, "onKey": true},
         {"name":"NAME","regexPattern":".*name.*", "sensitive":true, "onKey": true},
-        {"name":"database","regexPattern":".*database.*", "sensitive":true, "onKey": true}
+        {"name":"database","regexPattern":".*database.*", "sensitive":true, "onKey": true},
+        {"name":"Email","regexPattern":".*email.*", "sensitive":true, "onKey": true},
+        {"name":"URL","regexPattern":".*url.*", "sensitive":true, "onKey": true},
+        {"name":"CREDIT_CARD","regexPattern":".*credit_card.*", "sensitive":true, "onKey": true},
+        {"name":"SSN","regexPattern":".*ssn.*", "sensitive":true, "onKey": true},
+        {"name":"UUID","regexPattern":".*uuid.*", "sensitive":true, "onKey": true},
+        {"name":"PAN_CARD","regexPattern":".*pan_card.*", "sensitive":true, "onKey": true},
+        {"name":"PHONE_NUMBER_US","regexPattern":".*phone_number_us.*", "sensitive":true, "onKey": true},
+        {"name":"PHONE_NUMBER_INDIA","regexPattern":".*phone_number_india.*", "sensitive":true, "onKey": true}
     ]
 }
