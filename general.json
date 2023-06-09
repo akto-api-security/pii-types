@@ -6,7 +6,7 @@
         {"name":"secret","regexPattern":".*secret.*", "sensitive":true, "onKey": true},
         {"name":"database","regexPattern":".*database.*", "sensitive":true, "onKey": true},
         {"name":"Birth","regexPattern":".*(?i)birth.*", "sensitive":true, "onKey": true, "active": false},
-        {"name":"DOB","regexPattern":".*(?i)dob.*", "sensitive":true, "onKey": true, "active": false},
+        {"name":"DOB","regexPattern":".*(?i)dob.*", "sensitive":true, "onKey": true, "active": true},
         {"name":"Auth","regexPattern":".*(?i)auth.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"Contact","regexPattern":".*(?i)contact.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"Address","regexPattern":".*(?i)address.*", "sensitive":true, "onKey": true, "active": false},
