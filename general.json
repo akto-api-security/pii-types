@@ -17,6 +17,8 @@
         {"name":"Bank","regexPattern":".*(?i)bank.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"Pin","regexPattern":".*(?i)pin.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"Ein","regexPattern":".*(?i)ein.*", "sensitive":true, "onKey": true, "active": false},
-        {"name":"Invoice","regexPattern":".*(?i)invoice.*", "sensitive":true, "onKey": true, "active": false}
+        {"name":"Invoice","regexPattern":".*(?i)invoice.*", "sensitive":true, "onKey": true, "active": false},
+        {"name":"SessionId","regexPattern":".*(?i)sessionid.*", "sensitive":true, "onKey": true, "active": false},
+        {"name":"Enrypt","regexPattern":".*(?i)encrypt.*", "sensitive":true, "onKey": true, "active": false}
     ]
 }
