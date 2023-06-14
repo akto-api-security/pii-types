@@ -9,7 +9,7 @@
         {"name":"DOB","regexPattern":".*(?i)dob.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"Auth","regexPattern":".*(?i)auth.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"Contact","regexPattern":".*(?i)contact.*", "sensitive":true, "onKey": true, "active": false},
-        {"name":"Address","regexPattern":".*(?i)address.*", "sensitive":true, "onKey": true, "active": false},
+        {"name":"AddressKey","regexPattern":".*(?i)address.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"StreetLine","regexPattern":".*(?i)streetLine.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"licence","regexPattern":".*(?i)licence.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"license","regexPattern":".*(?i)license.*", "sensitive":true, "onKey": true, "active": false},
