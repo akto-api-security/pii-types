@@ -1,7 +1,7 @@
 {
     "types": [
-        {"name":"AWS ID","regexPattern":"\b((AKIA|ABIA|ACCA)[0-9A-Z]{16})\b", "sensitive":true, "onKey": false},
-        {"name":"AWS Secret","regexPattern":"[^A-Za-z0-9+\/]{0,1}([A-Za-z0-9+\/]{40})[^A-Za-z0-9+\/]{0,1}", "sensitive":true, "onKey": false},
+        {"name":"AWS Access Key ID","regexPattern":"\b((AKIA|ABIA|ACCA)[0-9A-Z]{16})\b", "sensitive":true, "onKey": false},
+        {"name":"AWS Secret Access Key","regexPattern":"[^A-Za-z0-9+\/]{0,1}([A-Za-z0-9+\/]{40})[^A-Za-z0-9+\/]{0,1}", "sensitive":true, "onKey": false},
         {"name":"GCP API Key","regexPattern":"AIza[0-9A-Za-z\\-_]{35}", "sensitive":true, "onKey": false},
         {"name":"MongoDB Secret","regexPattern":"\b(mongodb(\\+srv)?://[\\S]{3,50}:([\\S]{3,88})@[-.%\\w\/:]+)\b", "sensitive":true, "onKey": false},
         {"name":"MailChimp API Key","regexPattern":"[0-9a-f]{32}-us[0-9]{1,2}", "sensitive":true, "onKey": false},
