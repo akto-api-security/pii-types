@@ -5,10 +5,10 @@
         {"name":"GCP API Key","regexPattern":"AIza[0-9A-Za-z\\-_]{35}", "sensitive":true, "onKey": false},
         {"name":"MongoDB connection string","regexPattern":"\b(mongodb(\\+srv)?:\/\/[\\S]{3,50}:([\\S]{3,88})@[-.%\\w\/:]+)\b", "sensitive":true, "onKey": false},
         {"name":"MailChimp API Key","regexPattern":"[0-9a-f]{32}-us[0-9]{1,2}", "sensitive":true, "onKey": false},
-        {"name":"Ngrok API Key","regexPattern":"\b2[a-zA-Z0-9]{26}_\\d[a-zA-Z0-9]{20}\b", "sensitive":true, "onKey": false},
-        {"name":"NPM Access Token","regexPattern":"npm_[0-9a-zA-Z]{36}", "sensitive":true, "onKey": false},
+        {"name":"Ngrok API","regexPattern":"\b2[a-zA-Z0-9]{26}_\\d[a-zA-Z0-9]{20}\b", "sensitive":true, "onKey": false},
+        {"name":"NPM Access","regexPattern":"npm_[0-9a-zA-Z]{36}", "sensitive":true, "onKey": false},
         {"name":"Okta Domain","regexPattern":"\b[a-z0-9-]{1,40}\\.okta(?:preview|-emea){0,1}\\.com\b", "sensitive":true, "onKey": false},
-        {"name":"Github Access Token","regexPattern":"\b((?:ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b", "sensitive":true, "onKey": false},
-        {"name":"Gitlab Access Token","regexPattern":"\b(glpat-[a-zA-Z0-9\\-=_]{20,22})\b", "sensitive":true, "onKey": false}
+        {"name":"Github Access","regexPattern":"\b((?:ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\b", "sensitive":true, "onKey": false},
+        {"name":"Gitlab Access","regexPattern":"\b(glpat-[a-zA-Z0-9\\-=_]{20,22})\b", "sensitive":true, "onKey": false}
     ]
 }
