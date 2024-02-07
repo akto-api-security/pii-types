@@ -2,9 +2,9 @@
     "types": [
         {"name":"Password","regexPattern":".*password.*", "sensitive":false, "onKey": true},
         {"name":"Username","regexPattern":".*username.*", "sensitive":true, "onKey": true},
-        {"name":"token","regexPattern":".*token.*", "sensitive":true, "onKey": true},
-        {"name":"secret","regexPattern":".*secret.*", "sensitive":true, "onKey": true},
-        {"name":"database","regexPattern":".*database.*", "sensitive":true, "onKey": true},
+        {"name":"token","regexPattern":".*token.*", "sensitive":true, "onKey": true , "active": false},
+        {"name":"secret","regexPattern":".*secret.*", "sensitive":true, "onKey": true , "active": false},
+        {"name":"database","regexPattern":".*database.*", "sensitive":true, "onKey": true , "active": false},
         {"name":"Birth","regexPattern":".*(?i)birth.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"DOB","regexPattern":".*(?i)dob.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"Auth","regexPattern":".*(?i)auth.*", "sensitive":true, "onKey": true, "active": false},
@@ -29,6 +29,28 @@
         {"name":"Ngrok API","regexPattern":"\\b2[a-zA-Z0-9]{26}_\\d[a-zA-Z0-9]{20}\\b", "sensitive":true, "onKey": false, "active": false},
         {"name":"Okta Domain","regexPattern":".*[a-z0-9-]{1,40}\\.okta(?:preview|-emea){0,1}\\.com.*", "sensitive":true, "onKey": false, "active": false},
         {"name":"Github Access","regexPattern":"\\b((?:ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\\b", "sensitive":true, "onKey": false, "active": false},
-        {"name":"Gitlab Access","regexPattern":"\\b(glpat-[a-zA-Z0-9\\-=_]{20,22})\\b", "sensitive":true, "onKey": false, "active": false}        
+        {"name":"Gitlab Access","regexPattern":"\\b(glpat-[a-zA-Z0-9\\-=_]{20,22})\\b", "sensitive":true, "onKey": false, "active": false},
+        {"name":"Anthropic API","regexPattern":"\\b(sk-ant-api03-[\\w\\-]{93}AA)\\b", "sensitive":true, "onKey": false},
+        {"name":"Auth0 Domain","regexPattern":".*[a-zA-Z0-9\\-]{2,16}\\.[a-zA-Z0-9_-]{2,3}\\.auth0\\.com.*", "sensitive":true, "onKey": false},
+        {"name":"Azure Batch URL","regexPattern":"https:\/\/(.{1,50})\\.(.{1,50})\\.batch\\.azure\\.com", "sensitive":true, "onKey": false},
+        {"name":"Azure Container Registry URL","regexPattern":"([a-zA-Z0-9-]{1,100})\\.azurecr\\.io", "sensitive":true, "onKey": false},
+        {"name":"Azure Function Key URL","regexPattern":"\\bhttps:\/\/([a-zA-Z0-9-]{2,30})\\.azurewebsites\\.net\/(api\/)?([a-zA-Z0-9-]{2,30})\/([a-zA-Z0-9-]{2,30})\\b", "sensitive":true, "onKey": false},
+        {"name":"Azure Search Query Key URL","regexPattern":".*https:\/\/([0-9a-z]{5,40})\\.search\\.windows\\.net\/indexes\/([0-9a-z]{5,40}).*", "sensitive":true, "onKey": false},
+        {"name":"Databricks Domain","regexPattern":".*([a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.(cloud\\.databricks\\.com|gcp\\.databricks\\.com|azuredatabricks\\.net)).*", "sensitive":true, "onKey": false},
+        {"name":"Digital Ocean V2 Secret Key","regexPattern":"\\b((?:dop|doo|dor)_v1_[a-f0-9]{64})\\b", "sensitive":true, "onKey": false},
+        {"name":"Discord Bot Token","regexPattern":"\\b([A-Za-z0-9_-]{24}\\.[A-Za-z0-9_-]{6}\\.[A-Za-z0-9_-]{27})\\b", "sensitive":true, "onKey": false},
+        {"name":"Discord WebHook URL","regexPattern":"https:\/\/discord\\.com\/api\/webhooks\/[0-9]{18}\/[0-9a-zA-Z-]{68}", "sensitive":true, "onKey": false},
+        {"name":"DockerHub Access Token","regexPattern":"\\bdckr_pat_[a-zA-Z0-9_-]{27}\\b", "sensitive":true, "onKey": false},
+        {"name":"DropBox Access Token","regexPattern":"(sl\\.[A-Za-z0-9\\-_]{130,140})", "sensitive":true, "onKey": false},
+        {"name":"Figma","regexPattern":"\\b(fig[d|((u|o)(r|h)?)]_[a-z0-9A-Z_-]{40})\\b", "sensitive":true, "onKey": false},
+        {"name":"Grafana","regexPattern":"\\b(glc_[A-Za-z0-9+\/]{50,150}\\={0,2})", "sensitive":true, "onKey": false},
+        {"name":"Heroku","regexPattern":"\\b([0-9Aa-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\\b", "sensitive":true, "onKey": false},
+        {"name":"HuggingFace","regexPattern":"\\b(?:hf_|api_org_)[a-zA-Z0-9]{34}\\b", "sensitive":true, "onKey": false},
+        {"name":"MS Teams WebHook URL","regexPattern":"(https:\/\/[a-zA-Z-0-9]+\\.office\\.com\/webhook\/[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12}\\@[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12}\/IncomingWebhook\/[a-zA-Z-0-9]{32}\/[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12})", "sensitive":true, "onKey": false},
+        {"name":"New Relic API Token","regexPattern":"\\b([A-Za-z0-9_\\.]{4}-[A-Za-z0-9_\\.]{42})\\b", "sensitive":true, "onKey": false},
+        {"name":"Notion API Token","regexPattern":"\\b(secret_[A-Za-z0-9]{43})\\b", "sensitive":true, "onKey": false},
+        {"name":"OpenAI Token","regexPattern":"\\b(sk-[A-Za-z0-9]{20}T3BlbkFJ[A-Za-z0-9]{20})\\b", "sensitive":true, "onKey": false}
+               
+
     ]
 }
