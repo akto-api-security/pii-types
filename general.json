@@ -19,6 +19,16 @@
         {"name":"Ein","regexPattern":".*(?i)ein.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"Invoice","regexPattern":".*(?i)invoice.*", "sensitive":true, "onKey": true, "active": false},
         {"name":"SessionId","regexPattern":".*(?i)sessionid.*", "sensitive":true, "onKey": true, "active": false},
-        {"name":"Encrypt","regexPattern":".*(?i)encrypt.*", "sensitive":true, "onKey": true, "active": false}
+        {"name":"Encrypt","regexPattern":".*(?i)encrypt.*", "sensitive":true, "onKey": true, "active": false},
+        {"name":"AWS Access Key ID","regexPattern":"\\b((AKIA|ABIA|ACCA)[0-9A-Z]{16})\\b", "sensitive":true, "onKey": false},
+        {"name":"AWS Secret Access Key","regexPattern":"[^A-Za-z0-9+\/]{0,1}([A-Za-z0-9+\/]{40})[^A-Za-z0-9+\/]{0,1}", "sensitive":true, "onKey": false},
+        {"name":"GCP API Key","regexPattern":"AIza[0-9A-Za-z\\-_]{35}", "sensitive":true, "onKey": false},
+        {"name":"MailChimp API Key","regexPattern":"[0-9a-f]{32}-us[0-9]{1,2}", "sensitive":true, "onKey": false},
+        {"name":"NPM Access","regexPattern":"npm_[0-9a-zA-Z]{36}", "sensitive":true, "onKey": false},
+        {"name":"MongoDB connection string","regexPattern":"\\b(mongodb(\\+srv)?:\/\/[\\S]{3,50}:([\\S]{3,88})@[-.%\\w\/:]+)\\b", "sensitive":true, "onKey": false},
+        {"name":"Ngrok API","regexPattern":"\\b2[a-zA-Z0-9]{26}_\\d[a-zA-Z0-9]{20}\\b", "sensitive":true, "onKey": false},
+        {"name":"Okta Domain","regexPattern":".*[a-z0-9-]{1,40}\\.okta(?:preview|-emea){0,1}\\.com.*", "sensitive":true, "onKey": false},
+        {"name":"Github Access","regexPattern":"\\b((?:ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\\b", "sensitive":true, "onKey": false},
+        {"name":"Gitlab Access","regexPattern":"\\b(glpat-[a-zA-Z0-9\\-=_]{20,22})\\b", "sensitive":true, "onKey": false}        
     ]
 }
