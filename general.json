@@ -79,7 +79,9 @@
         {"name":"Google Firebase Domain","regexPattern":"([a-z0-9-]){1,30}(.firebaseapp.com)", "sensitive":true, "onKey": false, "active": false},
         {"name":"Google Firebase Database URL","regexPattern":"(http|https):\/\/([a-z0-9-]){1,30}(\\.firebaseio\\.com)|(http|https):\/\/([a-z0-9-]){1,30}(\\.firebaseio\\.com)|([a-z0-9-]){1,30}-(default-rtdb).((asia|europe|us|australia)|((north|south)(america|africa)))-((east|west|central|north|south)|((north|south)(east)))[0-9]{1,2}(\\.firebasedatabase\\.app)", "sensitive":true, "onKey": false, "active": false},
         {"name":"Facebook Access Token","regexPattern":"EAACEdEose0cBA[0-9A-Za-z]+", "sensitive":true, "onKey": false, "active": false},
-        {"name":"MS SQL Server Connection String","regexPattern":"(?i)Server\\s*=\\s*[^;]+;Database\\s*=\\s*[^;]+;(?:User\\s*Id\\s*=\\s*[^;]+;Password\\s*=\\s*[^;]+;|Integrated\\s*Security\\s*=\\s*True;)", "sensitive":true, "onKey": false, "active": false}
+        {"name":"MS SQL Server Connection String","regexPattern":"(?i)Server\\s*=\\s*[^;]+;Database\\s*=\\s*[^;]+;(?:User\\s*Id\\s*=\\s*[^;]+;Password\\s*=\\s*[^;]+;|Integrated\\s*Security\\s*=\\s*True;)", "sensitive":true, "onKey": false, "active": false},
+        {"name":"Heroku","regexPattern":"\\b(messingupintentionally[0-9Aa-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\\b", "sensitive":false, "onKey": false, "active": false},
+        
 
     ]
 }
