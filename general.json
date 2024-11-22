@@ -2,7 +2,7 @@
     "types": [
         {"name":"Password","regexPattern":".*password.*", "sensitive":false, "onKey": true, "tagsLists": ["PII"], "dataTypePriority": "CRITICAL"},
         {"name":"Username","regexPattern":".*username.*", "sensitive":true, "onKey": true, "tagsLists": ["PII"], "dataTypePriority": "CRITICAL"},
-        {"name":"token","regexPattern":".*token.*", "sensitive":true, "onKey": true, "tagsLists": ["AUTHENTICATION","TOKEN"], "dataTypePriority": "CRITICAL"},
+        {"name":"token","regexPattern":".*token1.*", "sensitive":true, "onKey": true, "tagsLists": ["AUTHENTICATION","TOKEN"], "dataTypePriority": "CRITICAL"},
         {"name":"secret","regexPattern":".*secret.*", "sensitive":true, "onKey": true, "tagsLists": ["TOKEN"], "dataTypePriority": "CRITICAL"},
         {"name":"database","regexPattern":".*database.*", "sensitive":true, "onKey": true,  "tagsLists": ["DATABASE","CREDENTIALS"], "dataTypePriority": "HIGH"},
         {"name":"Birth","regexPattern":".*(?i)birth.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "HIGH"},
