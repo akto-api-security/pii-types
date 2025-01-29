@@ -1,87 +1,977 @@
 {
     "types": [
-        {"name":"Password","regexPattern":".*password.*", "sensitive":false, "onKey": true, "tagsLists": ["PII"], "dataTypePriority": "CRITICAL"},
-        {"name":"Username","regexPattern":".*username.*", "sensitive":true, "onKey": true, "tagsLists": ["PII"], "dataTypePriority": "CRITICAL"},
-        {"name":"token","regexPattern":".*token.*", "sensitive":true, "onKey": true, "tagsLists": ["AUTHENTICATION","TOKEN"], "dataTypePriority": "CRITICAL"},
-        {"name":"secret","regexPattern":".*secret.*", "sensitive":true, "onKey": true, "tagsLists": ["TOKEN"], "dataTypePriority": "CRITICAL"},
-        {"name":"database","regexPattern":".*database.*", "sensitive":true, "onKey": true,  "tagsLists": ["DATABASE","CREDENTIALS"], "dataTypePriority": "HIGH"},
-        {"name":"Birth","regexPattern":".*(?i)birth.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "HIGH"},
-        {"name":"DOB","regexPattern":".*(?i)dob.*", "sensitive":true, "onKey": true, "active": false, "tagsLists": ["PII"], "dataTypePriority": "HIGH"},
-        {"name":"Auth","regexPattern":".*(?i)auth.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["AUTHENTICATION","TOKEN"], "dataTypePriority": "CRITICAL"},
-        {"name":"Contact","regexPattern":".*(?i)contact.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "HIGH"},
-        {"name":"AddressKey","regexPattern":".*(?i)address.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "MEDIUM"},
-        {"name":"StreetLine","regexPattern":".*(?i)streetLine.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "MEDIUM"},
-        {"name":"licence","regexPattern":".*(?i)licence.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "CRITICAL"},
-        {"name":"license","regexPattern":".*(?i)license.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "CRITICAL"},
-        {"name":"Passport","regexPattern":".*(?i)passport.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "CRITICAL"},
-        {"name":"Bank","regexPattern":".*(?i)bank.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "CRITICAL"},
-        {"name":"Pin","regexPattern":".*(?i)pin.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII, FINANCIAL"], "dataTypePriority": "CRITICAL"},
-        {"name":"Ein","regexPattern":".*(?i)ein.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["PII"], "dataTypePriority": "MEDIUM"},
-        {"name":"Invoice","regexPattern":".*(?i)invoice.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["FINANCIAL"], "dataTypePriority": "HIGH"},
-        {"name":"SessionId","regexPattern":".*(?i)sessionid.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["SESSION CREDENTIALS"], "dataTypePriority": "HIGH"},
-        {"name":"Encrypt","regexPattern":".*(?i)encrypt.*", "sensitive":true, "onKey": true, "active": false,  "tagsLists": ["SECURITY"], "dataTypePriority": "LOW"},
-        {"name":"AWS Access Key ID","regexPattern":"\\b((AKIA|ABIA|ACCA)[0-9A-Z]{16})\\b", "sensitive":true, "onKey": false,  "tagsLists": ["API KEY","TOKEN", "AWS"], "dataTypePriority": "HIGH"},
-        {"name":"GCP API Key","regexPattern":"AIza[0-9A-Za-z\\-_]{35}", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN", "GCP"], "dataTypePriority": "HIGH"},
-        {"name":"MailChimp API Key","regexPattern":"[0-9a-f]{32}-us[0-9]{1,2}", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "MEDIUM"},
-        {"name":"NPM Access","regexPattern":"npm_[0-9a-zA-Z]{36}", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"MongoDB connection string","regexPattern":"\\b(mongodb(\\+srv)?:\/\/[\\S]{3,50}:([\\S]{3,88})@[-.%\\w\/:]+)\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["MONGODB", "DATABASE","URL"], "dataTypePriority": "HIGH"},
-        {"name":"Ngrok API","regexPattern":"\\b2[a-zA-Z0-9]{26}_\\d[a-zA-Z0-9]{20}\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Okta Domain","regexPattern":".*[a-z0-9-]{1,40}\\.okta(?:preview|-emea){0,1}\\.com.*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["OKTA", "URL"], "dataTypePriority": "HIGH"},
-        {"name":"Github Access","regexPattern":"\\b((?:ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Gitlab Access","regexPattern":"\\b(glpat-[a-zA-Z0-9\\-=_]{20,22})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Anthropic API","regexPattern":"\\b(sk-ant-api03-[\\w\\-]{93}AA)\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Auth0 Domain","regexPattern":".*[a-zA-Z0-9\\-]{2,16}\\.[a-zA-Z0-9_-]{2,3}\\.auth0\\.com.*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["AUTHENTICATION", "URL", "AUTH0"], "dataTypePriority": "HIGH"},
-        {"name":"Azure Batch URL","regexPattern":"https:\/\/(.{1,50})\\.(.{1,50})\\.batch\\.azure\\.com", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["AZURE", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Azure Container Registry URL","regexPattern":"([a-zA-Z0-9-]{1,100})\\.azurecr\\.io", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["AZURE", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Azure Function Key URL","regexPattern":"\\bhttps:\/\/([a-zA-Z0-9-]{2,30})\\.azurewebsites\\.net\/(api\/)?([a-zA-Z0-9-]{2,30})\/([a-zA-Z0-9-]{2,30})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["AZURE", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Azure Search Query Key URL","regexPattern":".*https:\/\/([0-9a-z]{5,40})\\.search\\.windows\\.net\/indexes\/([0-9a-z]{5,40}).*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["AZURE", "URL", "RESOURCE"], "dataTypePriority": "MEDIUM"},
-        {"name":"Databricks Domain","regexPattern":".*([a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.(cloud\\.databricks\\.com|gcp\\.databricks\\.com|azuredatabricks\\.net)).*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Digital Ocean V2 Secret Key","regexPattern":"\\b((?:dop|doo|dor)_v1_[a-f0-9]{64})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Discord Bot Token","regexPattern":"\\b([A-Za-z0-9_-]{24}\\.[A-Za-z0-9_-]{6}\\.[A-Za-z0-9_-]{27})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Discord WebHook URL","regexPattern":"https:\/\/discord\\.com\/api\/webhooks\/[0-9]{18}\/[0-9a-zA-Z-]{68}", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["URL","RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"DockerHub Access Token","regexPattern":"\\bdckr_pat_[a-zA-Z0-9_-]{27}\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["DOCKER", "API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"DropBox Access Token","regexPattern":"(sl\\.[A-Za-z0-9\\-_]{130,140})", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "MEDIUM"},
-        {"name":"Figma","regexPattern":"\\b(fig[d|((u|o)(r|h)?)]_[a-z0-9A-Z_-]{40})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Grafana","regexPattern":"\\b(glc_[A-Za-z0-9+\/]{50,150}\\={0,2})", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"HuggingFace","regexPattern":"\\b(?:hf_|api_org_)[a-zA-Z0-9]{34}\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"MS Teams WebHook URL","regexPattern":"(https:\/\/[a-zA-Z-0-9]+\\.office\\.com\/webhook\/[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12}\\@[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12}\/IncomingWebhook\/[a-zA-Z-0-9]{32}\/[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12})", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["MICROSOFT", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Notion API Token","regexPattern":"\\b(secret_[A-Za-z0-9]{43})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"OpenAI Token","regexPattern":"\\b(sk-[A-Za-z0-9]{20}T3BlbkFJ[A-Za-z0-9]{20})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["OPENAI", "API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"AWS S3 Bucket URL","regexPattern":"^https:\/\/s3\\.[a-z0-9\\-]+\\.amazonaws\\.com\/[a-z0-9\\-\\.]+\/?$", "sensitive":true, "onKey": false,  "tagsLists": ["AWS", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"AWS ARN Connect Instance","regexPattern":"^arn:aws:connect:\\w+(?:-\\w+)+:\\d{12}:instance\/[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+$", "sensitive":true, "onKey": false,  "tagsLists": ["AWS", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"AWS SQS URL","regexPattern":"^https:\/\/sqs\\.[a-z0-9\\-]+\\.amazonaws\\.com\/[0-9]{12}\/[a-zA-Z0-9_\\-]+\/?$", "sensitive":true, "onKey": false,  "tagsLists": ["AWS", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"AWS RDS URL","regexPattern":"^.*\\.rds\\.amazonaws\\.com\/[a-zA-Z0-9\\-]+$", "sensitive":true, "onKey": false,  "tagsLists": ["AWS", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"AWS DocDB URL","regexPattern":"^.*\\.docdb\\.amazonaws\\.com\/[a-zA-Z0-9\\-]+$", "sensitive":true, "onKey": false,  "tagsLists": ["AWS", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"AWS DynamoDB URL","regexPattern":"^https:\/\/dynamodb\\.[a-z0-9\\-]+\\.amazonaws\\.com\/?[a-zA-Z0-9\\-]+\/?$", "sensitive":true, "onKey": false,  "tagsLists": ["AWS", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Postgres Connection string","regexPattern":"\\b(?i)postgres(?:ql)?:\/\/\\S+\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["DATABASE", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Postman Key","regexPattern":"\\b(PMAK-[a-zA-Z-0-9]{59})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "POSTMAN", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Razorpay Key","regexPattern":"(?i)\\brzp_live_[A-Za-z0-9]{14}\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["RAZORPAY", "API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Redis URI Secret","regexPattern":".*redi[s]{1,2}:\/\/[\\S]{3,50}:([\\S]{3,50})@[-.%\\w\/:]+.*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["TOKEN", "REDIS", "SECRET"], "dataTypePriority": "HIGH"},
-        {"name":"Azure Redis Cache Instance","regexPattern":"\\b([\\w\\d.-]{1,100}\\.redis\\.cache\\.windows\\.net:6380),password=([^,]{44}),ssl=True,abortConnect=False\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["AZURE", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Salesforce Domain","regexPattern":"\\bhttps:\/\/[0-9a-zA-Z-\\.]{1,100}\\.my\\.salesforce\\.com\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["SALESFORCE", "URL", "RESOURCE"], "dataTypePriority": "MEDIUM"},
-        {"name":"Shutterstock API Access Token","regexPattern":"\\b(v2\/[0-9A-Za-z]{388})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "MEDIUM"},
-        {"name":"Slack Bot Token","regexPattern":"xoxb\\-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9\\-]*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["TOKEN", "API KEY"], "dataTypePriority": "MEDIUM"},
-        {"name":"Slack User Token","regexPattern":"xoxp\\-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9\\-]*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["TOKEN", "API KEY"], "dataTypePriority": "MEDIUM"},
-        {"name":"Slack Workspace Access Token","regexPattern":"xoxa\\-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9\\-]*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["TOKEN", "API KEY"], "dataTypePriority": "MEDIUM"},
-        {"name":"Slack Workspace Refresh Token","regexPattern":"xoxr\\-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9\\-]*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": [ "TOKEN", "API KEY"], "dataTypePriority": "MEDIUM"},
-        {"name":"Slack Webhook URL","regexPattern":"(https:\/\/hooks\\.slack\\.com\/services\/T[A-Z0-9]+\/B[A-Z0-9]+\/[A-Za-z0-9]{23,25})", "sensitive":true, "onKey": false, "active": false,  "tagsLists": [ "RESOURCE","URL"], "dataTypePriority": "MEDIUM"},
-        {"name":"Square Access Token","regexPattern":"(EAAA[a-zA-Z0-9\\-\\+\\=]{60})", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Hashicorp Access Token","regexPattern":"\\b([A-Za-z0-9]{14}.atlasv1.[A-Za-z0-9]{67})\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Twilio Account SID","regexPattern":"\\bAC[0-9a-f]{32}\\b", "sensitive":true, "active": false,  "tagsLists": ["SESSION CREDENTIALS"], "dataTypePriority": "HIGH"},
-        {"name":"Stripe Token","regexPattern":"[rs]k_live_[a-zA-Z0-9]{20,247}", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Alibaba Token","regexPattern":"\\b(LTAI[a-zA-Z0-9]{17,21})[\\\"';\\s]*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Zapier WebHook URL","regexPattern":".*https:\/\/hooks\\.zapier\\.com\/hooks\/catch\/[A-Za-z0-9\/]{16}.*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Shopify Shared Secret","regexPattern":"shpss_[a-fA-F0-9]{32}", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"OpenVPN Domain","regexPattern":"\\b(https?:\/\/[A-Za-z0-9-]+\\.api\\.openvpn\\.com)\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["URL", "RESOURCE"], "dataTypePriority": "MEDIUM"},
-        {"name":"RabbitMQ URI","regexPattern":"\\b(?:amqp:)?\/\/[\\S]{3,50}:([\\S]{3,50})@[-.%\\w\/:]+\\b", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["TOKEN", "API KEY"], "dataTypePriority": "HIGH"},
-        {"name":"Square OAuth Secret","regexPattern":"q0csp-[ 0-9A-Za-z-_]{43}", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["AUTHENTICATION", "API KEY", "TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"Amazon Advertising Services URL","regexPattern":".*(https?:\/\/)(www\\.)?advertising-api\\.amazon\\.com\/?.*", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["AWS", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Google Firebase Domain","regexPattern":"([a-z0-9-]){1,30}(.firebaseapp.com)", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["URL", "GOOGLE", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Google Firebase Database URL","regexPattern":"(http|https):\/\/([a-z0-9-]){1,30}(\\.firebaseio\\.com)|(http|https):\/\/([a-z0-9-]){1,30}(\\.firebaseio\\.com)|([a-z0-9-]){1,30}-(default-rtdb).((asia|europe|us|australia)|((north|south)(america|africa)))-((east|west|central|north|south)|((north|south)(east)))[0-9]{1,2}(\\.firebasedatabase\\.app)", "sensitive":true, "onKey": false, "active": false,  "tagsLists": ["URL", "RESOURCE", "GOOGLE"], "dataTypePriority": "HIGH"},
-        {"name":"Facebook Access Token","regexPattern":"EAACEdEose0cBA[0-9A-Za-z]+", "sensitive":true, "onKey": false, "active": false, "tagsLists": ["API KEY","TOKEN"], "dataTypePriority": "HIGH"},
-        {"name":"MS SQL Server Connection String","regexPattern":"(?i)Server\\s*=\\s*[^;]+;Database\\s*=\\s*[^;]+;(?:User\\s*Id\\s*=\\s*[^;]+;Password\\s*=\\s*[^;]+;|Integrated\\s*Security\\s*=\\s*True;)", "sensitive":true, "onKey": false, "active": false, "tagsLists": ["DATABASE", "URL", "RESOURCE"], "dataTypePriority": "HIGH"},
-        {"name":"Heroku","regexPattern":"\\b(messingupintentionally[0-9Aa-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\\b", "sensitive":false, "onKey": false, "active": false, "tagsLists": ["API KEY","TOKEN"], "dataTypePriority": "MEDIUM"}
-        
-
+        {
+            "name": "Password",
+            "regexPattern": ".*password.*",
+            "sensitive": false,
+            "onKey": true,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "Username",
+            "regexPattern": ".*username.*",
+            "sensitive": true,
+            "onKey": true,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "token",
+            "regexPattern": ".*token.*",
+            "sensitive": true,
+            "onKey": true,
+            "onKeyAndPayload": true,
+            "regexPatternOnValue": "[A-Za-z0-9-_]{20,}",
+            "tagsLists": [
+                "AUTHENTICATION",
+                "TOKEN"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "secret",
+            "regexPattern": ".*secret.*",
+            "sensitive": true,
+            "onKey": true,
+            "onKeyAndPayload": true,
+            "regexPatternOnValue": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+            "tagsLists": [
+                "TOKEN"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "database",
+            "regexPattern": ".*database.*",
+            "sensitive": true,
+            "onKey": true,
+            "tagsLists": [
+                "DATABASE",
+                "CREDENTIALS"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Birth",
+            "regexPattern": ".*(?i)birth.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "DOB",
+            "regexPattern": ".*(?i)dob.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Auth",
+            "regexPattern": ".*(?i)auth.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "AUTHENTICATION",
+                "TOKEN"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "Contact",
+            "regexPattern": ".*(?i)contact.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "AddressKey",
+            "regexPattern": ".*(?i)address.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "StreetLine",
+            "regexPattern": ".*(?i)streetLine.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "licence",
+            "regexPattern": ".*(?i)licence.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "license",
+            "regexPattern": ".*(?i)license.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "Passport",
+            "regexPattern": ".*(?i)passport.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "Bank",
+            "regexPattern": ".*(?i)bank.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "Pin",
+            "regexPattern": ".*(?i)pin.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII, FINANCIAL"
+            ],
+            "dataTypePriority": "CRITICAL"
+        },
+        {
+            "name": "Ein",
+            "regexPattern": ".*(?i)ein.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "PII"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Invoice",
+            "regexPattern": ".*(?i)invoice.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "FINANCIAL"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "SessionId",
+            "regexPattern": ".*(?i)sessionid.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "SESSION CREDENTIALS"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Encrypt",
+            "regexPattern": ".*(?i)encrypt.*",
+            "sensitive": true,
+            "onKey": true,
+            "active": false,
+            "tagsLists": [
+                "SECURITY"
+            ],
+            "dataTypePriority": "LOW"
+        },
+        {
+            "name": "AWS Access Key ID",
+            "regexPattern": "\\b((AKIA|ABIA|ACCA)[0-9A-Z]{16})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN",
+                "AWS"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "GCP API Key",
+            "regexPattern": "AIza[0-9A-Za-z\\-_]{35}",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN",
+                "GCP"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "MailChimp API Key",
+            "regexPattern": "[0-9a-f]{32}-us[0-9]{1,2}",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "NPM Access",
+            "regexPattern": "npm_[0-9a-zA-Z]{36}",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "MongoDB connection string",
+            "regexPattern": "\\b(mongodb(\\+srv)?:\/\/[\\S]{3,50}:([\\S]{3,88})@[-.%\\w\/:]+)\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "MONGODB",
+                "DATABASE",
+                "URL"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Ngrok API",
+            "regexPattern": "\\b2[a-zA-Z0-9]{26}_\\d[a-zA-Z0-9]{20}\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Okta Domain",
+            "regexPattern": ".*[a-z0-9-]{1,40}\\.okta(?:preview|-emea){0,1}\\.com.*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "OKTA",
+                "URL"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Github Access",
+            "regexPattern": "\\b((?:ghp|gho|ghu|ghs|ghr|github_pat)_[a-zA-Z0-9_]{36,255})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Gitlab Access",
+            "regexPattern": "\\b(glpat-[a-zA-Z0-9\\-=_]{20,22})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Anthropic API",
+            "regexPattern": "\\b(sk-ant-api03-[\\w\\-]{93}AA)\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Auth0 Domain",
+            "regexPattern": ".*[a-zA-Z0-9\\-]{2,16}\\.[a-zA-Z0-9_-]{2,3}\\.auth0\\.com.*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "AUTHENTICATION",
+                "URL",
+                "AUTH0"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Azure Batch URL",
+            "regexPattern": "https:\/\/(.{1,50})\\.(.{1,50})\\.batch\\.azure\\.com",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "AZURE",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Azure Container Registry URL",
+            "regexPattern": "([a-zA-Z0-9-]{1,100})\\.azurecr\\.io",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "AZURE",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Azure Function Key URL",
+            "regexPattern": "\\bhttps:\/\/([a-zA-Z0-9-]{2,30})\\.azurewebsites\\.net\/(api\/)?([a-zA-Z0-9-]{2,30})\/([a-zA-Z0-9-]{2,30})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "AZURE",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Azure Search Query Key URL",
+            "regexPattern": ".*https:\/\/([0-9a-z]{5,40})\\.search\\.windows\\.net\/indexes\/([0-9a-z]{5,40}).*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "AZURE",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Databricks Domain",
+            "regexPattern": ".*([a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.(cloud\\.databricks\\.com|gcp\\.databricks\\.com|azuredatabricks\\.net)).*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Digital Ocean V2 Secret Key",
+            "regexPattern": "\\b((?:dop|doo|dor)_v1_[a-f0-9]{64})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Discord Bot Token",
+            "regexPattern": "\\b([A-Za-z0-9_-]{24}\\.[A-Za-z0-9_-]{6}\\.[A-Za-z0-9_-]{27})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Discord WebHook URL",
+            "regexPattern": "https:\/\/discord\\.com\/api\/webhooks\/[0-9]{18}\/[0-9a-zA-Z-]{68}",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "DockerHub Access Token",
+            "regexPattern": "\\bdckr_pat_[a-zA-Z0-9_-]{27}\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "DOCKER",
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "DropBox Access Token",
+            "regexPattern": "(sl\\.[A-Za-z0-9\\-_]{130,140})",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Figma",
+            "regexPattern": "\\b(fig[d|((u|o)(r|h)?)]_[a-z0-9A-Z_-]{40})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Grafana",
+            "regexPattern": "\\b(glc_[A-Za-z0-9+\/]{50,150}\\={0,2})",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "HuggingFace",
+            "regexPattern": "\\b(?:hf_|api_org_)[a-zA-Z0-9]{34}\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "MS Teams WebHook URL",
+            "regexPattern": "(https:\/\/[a-zA-Z-0-9]+\\.office\\.com\/webhook\/[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12}\\@[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12}\/IncomingWebhook\/[a-zA-Z-0-9]{32}\/[a-zA-Z-0-9]{8}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{4}-[a-zA-Z-0-9]{12})",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "MICROSOFT",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Notion API Token",
+            "regexPattern": "\\b(secret_[A-Za-z0-9]{43})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "OpenAI Token",
+            "regexPattern": "\\b(sk-[A-Za-z0-9]{20}T3BlbkFJ[A-Za-z0-9]{20})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "OPENAI",
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "AWS S3 Bucket URL",
+            "regexPattern": "^https:\/\/s3\\.[a-z0-9\\-]+\\.amazonaws\\.com\/[a-z0-9\\-\\.]+\/?$",
+            "sensitive": true,
+            "onKey": false,
+            "tagsLists": [
+                "AWS",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "AWS ARN Connect Instance",
+            "regexPattern": "^arn:aws:connect:\\w+(?:-\\w+)+:\\d{12}:instance\/[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+$",
+            "sensitive": true,
+            "onKey": false,
+            "tagsLists": [
+                "AWS",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "AWS SQS URL",
+            "regexPattern": "^https:\/\/sqs\\.[a-z0-9\\-]+\\.amazonaws\\.com\/[0-9]{12}\/[a-zA-Z0-9_\\-]+\/?$",
+            "sensitive": true,
+            "onKey": false,
+            "tagsLists": [
+                "AWS",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "AWS RDS URL",
+            "regexPattern": "^.*\\.rds\\.amazonaws\\.com\/[a-zA-Z0-9\\-]+$",
+            "sensitive": true,
+            "onKey": false,
+            "tagsLists": [
+                "AWS",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "AWS DocDB URL",
+            "regexPattern": "^.*\\.docdb\\.amazonaws\\.com\/[a-zA-Z0-9\\-]+$",
+            "sensitive": true,
+            "onKey": false,
+            "tagsLists": [
+                "AWS",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "AWS DynamoDB URL",
+            "regexPattern": "^https:\/\/dynamodb\\.[a-z0-9\\-]+\\.amazonaws\\.com\/?[a-zA-Z0-9\\-]+\/?$",
+            "sensitive": true,
+            "onKey": false,
+            "tagsLists": [
+                "AWS",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Postgres Connection string",
+            "regexPattern": "\\b(?i)postgres(?:ql)?:\/\/\\S+\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "DATABASE",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Postman Key",
+            "regexPattern": "\\b(PMAK-[a-zA-Z-0-9]{59})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "POSTMAN",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Razorpay Key",
+            "regexPattern": "(?i)\\brzp_live_[A-Za-z0-9]{14}\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "RAZORPAY",
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Redis URI Secret",
+            "regexPattern": ".*redi[s]{1,2}:\/\/[\\S]{3,50}:([\\S]{3,50})@[-.%\\w\/:]+.*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "TOKEN",
+                "REDIS",
+                "SECRET"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Azure Redis Cache Instance",
+            "regexPattern": "\\b([\\w\\d.-]{1,100}\\.redis\\.cache\\.windows\\.net:6380),password=([^,]{44}),ssl=True,abortConnect=False\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "AZURE",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Salesforce Domain",
+            "regexPattern": "\\bhttps:\/\/[0-9a-zA-Z-\\.]{1,100}\\.my\\.salesforce\\.com\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "SALESFORCE",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Shutterstock API Access Token",
+            "regexPattern": "\\b(v2\/[0-9A-Za-z]{388})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Slack Bot Token",
+            "regexPattern": "xoxb\\-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9\\-]*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "TOKEN",
+                "API KEY"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Slack User Token",
+            "regexPattern": "xoxp\\-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9\\-]*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "TOKEN",
+                "API KEY"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Slack Workspace Access Token",
+            "regexPattern": "xoxa\\-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9\\-]*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "TOKEN",
+                "API KEY"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Slack Workspace Refresh Token",
+            "regexPattern": "xoxr\\-[0-9]{10,13}\\-[0-9]{10,13}[a-zA-Z0-9\\-]*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "TOKEN",
+                "API KEY"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Slack Webhook URL",
+            "regexPattern": "(https:\/\/hooks\\.slack\\.com\/services\/T[A-Z0-9]+\/B[A-Z0-9]+\/[A-Za-z0-9]{23,25})",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "RESOURCE",
+                "URL"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "Square Access Token",
+            "regexPattern": "(EAAA[a-zA-Z0-9\\-\\+\\=]{60})",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Hashicorp Access Token",
+            "regexPattern": "\\b([A-Za-z0-9]{14}.atlasv1.[A-Za-z0-9]{67})\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Twilio Account SID",
+            "regexPattern": "\\bAC[0-9a-f]{32}\\b",
+            "sensitive": true,
+            "active": false,
+            "tagsLists": [
+                "SESSION CREDENTIALS"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Stripe Token",
+            "regexPattern": "[rs]k_live_[a-zA-Z0-9]{20,247}",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Alibaba Token",
+            "regexPattern": "\\b(LTAI[a-zA-Z0-9]{17,21})[\\\"';\\s]*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Zapier WebHook URL",
+            "regexPattern": ".*https:\/\/hooks\\.zapier\\.com\/hooks\/catch\/[A-Za-z0-9\/]{16}.*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Shopify Shared Secret",
+            "regexPattern": "shpss_[a-fA-F0-9]{32}",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "OpenVPN Domain",
+            "regexPattern": "\\b(https?:\/\/[A-Za-z0-9-]+\\.api\\.openvpn\\.com)\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "MEDIUM"
+        },
+        {
+            "name": "RabbitMQ URI",
+            "regexPattern": "\\b(?:amqp:)?\/\/[\\S]{3,50}:([\\S]{3,50})@[-.%\\w\/:]+\\b",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "TOKEN",
+                "API KEY"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Square OAuth Secret",
+            "regexPattern": "q0csp-[ 0-9A-Za-z-_]{43}",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "AUTHENTICATION",
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Amazon Advertising Services URL",
+            "regexPattern": ".*(https?:\/\/)(www\\.)?advertising-api\\.amazon\\.com\/?.*",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "AWS",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Google Firebase Domain",
+            "regexPattern": "([a-z0-9-]){1,30}(.firebaseapp.com)",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "URL",
+                "GOOGLE",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Google Firebase Database URL",
+            "regexPattern": "(http|https):\/\/([a-z0-9-]){1,30}(\\.firebaseio\\.com)|(http|https):\/\/([a-z0-9-]){1,30}(\\.firebaseio\\.com)|([a-z0-9-]){1,30}-(default-rtdb).((asia|europe|us|australia)|((north|south)(america|africa)))-((east|west|central|north|south)|((north|south)(east)))[0-9]{1,2}(\\.firebasedatabase\\.app)",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "URL",
+                "RESOURCE",
+                "GOOGLE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Facebook Access Token",
+            "regexPattern": "EAACEdEose0cBA[0-9A-Za-z]+",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "MS SQL Server Connection String",
+            "regexPattern": "(?i)Server\\s*=\\s*[^;]+;Database\\s*=\\s*[^;]+;(?:User\\s*Id\\s*=\\s*[^;]+;Password\\s*=\\s*[^;]+;|Integrated\\s*Security\\s*=\\s*True;)",
+            "sensitive": true,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "DATABASE",
+                "URL",
+                "RESOURCE"
+            ],
+            "dataTypePriority": "HIGH"
+        },
+        {
+            "name": "Heroku",
+            "regexPattern": "\\b(messingupintentionally[0-9Aa-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\\b",
+            "sensitive": false,
+            "onKey": false,
+            "active": false,
+            "tagsLists": [
+                "API KEY",
+                "TOKEN"
+            ],
+            "dataTypePriority": "MEDIUM"
+        }
     ]
 }
